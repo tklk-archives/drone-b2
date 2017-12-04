@@ -21,12 +21,12 @@ func main() {
 		cli.StringFlag{
 			Name:   "access-key",
 			Usage:  "aws access key",
-			EnvVar: "B2_ACCOUNT_ID",
+			EnvVar: "PLUGIN_ACCOUNT,B2_ACCOUNT_ID",
 		},
 		cli.StringFlag{
 			Name:   "secret-key",
 			Usage:  "aws secret key",
-			EnvVar: "B2_APPLICATION_KEY",
+			EnvVar: "PLUGIN_KEY,B2_APPLICATION_KEY",
 		},
 		cli.StringFlag{
 			Name:   "bucket",
