@@ -111,8 +111,8 @@ func (p *Plugin) Exec() error {
 		}
 
 		target := filepath.Join(p.Target, strings.TrimPrefix(match, p.StripPrefix))
-		if !strings.HasPrefix(target, "/") {
-			target = "/" + target
+		if strings.HasPrefix(target, "/") {
+			target = strings.TrimPrefix(target, "/")
 		}
 
 		// amazon S3 has pretty crappy default content-type headers so this pluign
