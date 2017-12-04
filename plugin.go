@@ -1,6 +1,8 @@
 package main
 
 import (
+	"context"
+	"io"
 	"mime"
 	"os"
 	"path/filepath"
@@ -8,35 +10,15 @@ import (
 
 	"errors"
 	log "github.com/Sirupsen/logrus"
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/credentials"
-	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/service/s3"
+	b2 "github.com/kurin/blazer/b2"
 	"github.com/mattn/go-zglob"
 )
 
 // Plugin defines the S3 plugin parameters.
 type Plugin struct {
-	Endpoint string
-	Key      string
-	Secret   string
-	Bucket   string
-
-	// if not "", enable server-side encryption
-	// valid values are:
-	//     AES256
-	//     aws:kms
-	Encryption string
-
-	// us-east-1
-	// us-west-1
-	// us-west-2
-	// eu-west-1
-	// ap-southeast-1
-	// ap-southeast-2
-	// ap-northeast-1
-	// sa-east-1
-	Region string
+	Key    string
+	Secret string
+	Bucket string
 
 	// Indicates the files ACL, which should be one
 	// of the following:
@@ -71,10 +53,6 @@ type Plugin struct {
 	// Exclude files matching this pattern.
 	Exclude []string
 
-	// Use path style instead of domain style.
-	//
-	// Should be true for minio and false for AWS.
-	PathStyle bool
 	// Dry run without uploading/
 	DryRun bool
 }
@@ -86,28 +64,31 @@ func (p *Plugin) Exec() error {
 		p.Target = p.Target[1:]
 	}
 
-	// create the client
-	conf := &aws.Config{
-		Region:           aws.String(p.Region),
-		Endpoint:         &p.Endpoint,
-		DisableSSL:       aws.Bool(strings.HasPrefix(p.Endpoint, "http://")),
-		S3ForcePathStyle: aws.Bool(p.PathStyle),
-	}
-
-	//Allowing to use the instance role or provide a key and secret
-	if p.Key != "" && p.Secret != "" {
-		conf.Credentials = credentials.NewStaticCredentials(p.Key, p.Secret, "")
-	} else if p.YamlVerified != true {
+	if p.YamlVerified != true {
 		return errors.New("Security issue: When using instance role you must have the yaml verified")
 	}
-	client := s3.New(session.New(), conf)
+
+	ctx := context.Background()
+
+	client, err := b2.NewClient(ctx, p.Key, p.Secret)
+	if err != nil {
+		log.WithFields(log.Fields{
+			"error": err,
+		}).Error("Could not authenticate to B2")
+	}
 
 	// find the bucket
 	log.WithFields(log.Fields{
-		"region":   p.Region,
-		"endpoint": p.Endpoint,
-		"bucket":   p.Bucket,
+		"bucket": p.Bucket,
 	}).Info("Attempting to upload")
+
+	bucket, err := client.Bucket(ctx, p.Bucket)
+	if err != nil {
+		log.WithFields(log.Fields{
+			"error": err,
+		}).Error("Could not find bucket")
+		return err
+	}
 
 	matches, err := matches(p.Source, p.Exclude)
 	if err != nil {
@@ -152,6 +133,10 @@ func (p *Plugin) Exec() error {
 			continue
 		}
 
+		b2attrs := &b2.Attrs{
+			ContentType: content,
+		}
+
 		f, err := os.Open(match)
 		if err != nil {
 			log.WithFields(log.Fields{
@@ -162,30 +147,20 @@ func (p *Plugin) Exec() error {
 		}
 		defer f.Close()
 
-		putObjectInput := &s3.PutObjectInput{
-			Body:        f,
-			Bucket:      &(p.Bucket),
-			Key:         &target,
-			ACL:         &(p.Access),
-			ContentType: &content,
-		}
-
-		if p.Encryption != "" {
-			putObjectInput.ServerSideEncryption = &(p.Encryption)
-		}
-
-		_, err = client.PutObject(putObjectInput)
-
-		if err != nil {
+		obj := bucket.Object(target)
+		w := obj.NewWriter(ctx)
+		w.WithAttrs(b2attrs)
+		if _, err := io.Copy(w, f); err != nil {
 			log.WithFields(log.Fields{
 				"name":   match,
 				"bucket": p.Bucket,
 				"target": target,
 				"error":  err,
 			}).Error("Could not upload file")
-
+			w.Close()
 			return err
 		}
+		w.Close()
 		f.Close()
 	}
 

@@ -1,13 +1,8 @@
-# drone-s3
+# drone-b2
 
-[![Build Status](http://beta.drone.io/api/badges/drone-plugins/drone-s3/status.svg)](http://beta.drone.io/drone-plugins/drone-s3)
-[![Go Doc](https://godoc.org/github.com/drone-plugins/drone-s3?status.svg)](http://godoc.org/github.com/drone-plugins/drone-s3)
-[![Go Report](https://goreportcard.com/badge/github.com/drone-plugins/drone-s3)](https://goreportcard.com/report/github.com/drone-plugins/drone-s3)
-[![Join the chat at https://gitter.im/drone/drone](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/drone/drone)
-
-Drone plugin to publish files and artifacts to Amazon S3 or Minio. For the
+Drone plugin to publish files and artifacts to Backblaze B2. For the
 usage information and a listing of the available options please take a look at
-[the docs](http://plugins.drone.io/drone-plugins/drone-s3/).
+[the docs](http://plugins.drone.io/techknowlogick/drone-b2/).
 
 ## Build
 
@@ -24,7 +19,7 @@ Build the Docker image with the following commands:
 
 ```
 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -tags netgo
-docker build --rm=true -t plugins/s3 .
+docker build --rm=true -t techknowlogick/drone-b2 .
 ```
 
 Please note incorrectly building the image for the correct x64 linux and with
@@ -32,7 +27,7 @@ CGO disabled will result in an error when running the Docker image:
 
 ```
 docker: Error response from daemon: Container command
-'/bin/drone-s3' not found or does not exist..
+'/bin/drone-b2' not found or does not exist..
 ```
 
 ## Usage
@@ -44,9 +39,13 @@ docker run --rm \
   -e PLUGIN_SOURCE=<source> \
   -e PLUGIN_TARGET=<target> \
   -e PLUGIN_BUCKET=<bucket> \
-  -e AWS_ACCESS_KEY_ID=<token> \
-  -e AWS_SECRET_ACCESS_KEY=<secret> \
+  -e B2_ACCOUNT_ID=<token> \
+  -e B2_APPLICATION_KEY=<secret> \
   -v $(pwd):$(pwd) \
   -w $(pwd) \
-  plugins/s3 --dry-run
+  techknowlogick/drone-b2 --dry-run
 ```
+
+## Thanks
+
+This plugin is forked form [drone-s3](https://github.com/drone-plugins/drone-s3) and changed to use Backblaze B2

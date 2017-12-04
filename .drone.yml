@@ -1,6 +1,6 @@
 workspace:
   base: /go
-  path: src/github.com/drone-plugins/drone-s3
+  path: src/github.com/techknowlogick/drone-b2
 
 pipeline:
   test:
@@ -18,7 +18,7 @@ pipeline:
 
   publish_linux_amd64:
     image: plugins/docker
-    repo: plugins/s3
+    repo: techknowlogick/drone-b2
     tags: [ "latest", "1.2", "1" ]
     secrets: [ docker_username, docker_password ]
     when:
@@ -27,7 +27,7 @@ pipeline:
 
   publish_linux_armhf:
     image: plugins/docker
-    repo: plugins/s3
+    repo: techknowlogick/drone-b2
     tags: [ "linux-arm" ]
     dockerfile: Dockerfile.armhf
     secrets: [ docker_username, docker_password ]
@@ -37,7 +37,7 @@ pipeline:
 
   publish_linux_aarch64:
     image: plugins/docker
-    repo: plugins/s3
+    repo: techknowlogick/drone-b2
     tags: [ "linux-arm64" ]
     dockerfile: Dockerfile.aarch64
     secrets: [ docker_username, docker_password ]
