@@ -14,9 +14,13 @@ script:
   # Test Golang
   - go vet
   - go test -cover -coverprofile=coverage.out
-  # login into docker hub
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   # build and publish docker images
   - docker build -f Dockerfile -t techknowlogick/drone-b2:latest .
   - docker build -f Dockerfile.armhf -t techknowlogick/drone-b2:linux-arm .
   - docker build -f Dockerfile.aarch64 -t techknowlogick/drone-b2:linux-arm64 .
+
+deploy:
+  provider: script
+  script: bash docker_push.sh
+  on:
+    branch: master
