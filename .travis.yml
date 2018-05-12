@@ -1,0 +1,18 @@
+sudo: required
+
+install: true
+
+language: go
+
+go:
+- 1.9
+
+services:
+  - docker
+
+script:
+  # Test Golang
+  - go vet
+  - go test -cover -coverprofile=coverage.out
+  # Build binaries
+  # build and publish docker images
