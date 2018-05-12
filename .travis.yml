@@ -16,3 +16,4 @@ script:
   - go test -cover -coverprofile=coverage.out
   # Build binaries
   # build and publish docker images
+  - docker build -t techknowlogick/drone-b2 .
