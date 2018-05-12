@@ -14,6 +14,7 @@ script:
   # Test Golang
   - go vet
   - go test -cover -coverprofile=coverage.out
-  # Build binaries
   # build and publish docker images
-  - docker build -t techknowlogick/drone-b2 .
+  - docker build -f Dockerfile -t techknowlogick/drone-b2:latest .
+  - docker build -f Dockerfile.armhf -t techknowlogick/drone-b2:linux-arm .
+  - docker build -f Dockerfile.aarch64 -t techknowlogick/drone-b2:linux-arm64 .
