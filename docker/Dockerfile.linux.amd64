@@ -1,7 +1,7 @@
 FROM plugins/base:multiarch
 
 LABEL maintainer="Matti Ranta <hello@techknowlogick.com>" \
-  org.label-schema.name="Drone B@" \
+  org.label-schema.name="Drone B2" \
   org.label-schema.vendor="tklk" \
   org.label-schema.schema-version="1.0"
 
