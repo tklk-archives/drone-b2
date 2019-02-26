@@ -1,4 +1,4 @@
-FROM golang:1.10-alpine3.7 AS build-env
+FROM golang:1.11-alpine3.7 AS build-env
 
 #Build deps
 RUN apk --no-cache add build-base git
