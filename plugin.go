@@ -9,7 +9,7 @@ import (
 	"strings"
 
 	"errors"
-	log "github.com/Sirupsen/logrus"
+	log "github.com/sirupsen/logrus"
 	b2 "github.com/kurin/blazer/b2"
 	"github.com/mattn/go-zglob"
 )
