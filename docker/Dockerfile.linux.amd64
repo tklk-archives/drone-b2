@@ -1,0 +1,9 @@
+FROM plugins/base:multiarch
+
+LABEL maintainer="Matti Ranta <hello@techknowlogick.com>" \
+  org.label-schema.name="Drone B@" \
+  org.label-schema.vendor="tklk" \
+  org.label-schema.schema-version="1.0"
+
+ADD release/linux/amd64/drone-b2 /bin/
+ENTRYPOINT ["/bin/drone-b2"]
