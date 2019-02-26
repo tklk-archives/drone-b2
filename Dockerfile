@@ -17,7 +17,7 @@ ENV CGO_ENABLED=0
 
 RUN go build -a -tags netgo -o drone-b2
 
-FROM alpine:3.7
+FROM alpine:3.9
 LABEL maintainer="hello@techknowlogick.com"
 
 RUN apk --no-cache add \
