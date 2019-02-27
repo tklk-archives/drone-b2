@@ -4,7 +4,7 @@ go 1.12
 
 require (
 	github.com/golang/protobuf v1.3.0
-	github.com/joho/godotenv v0.0.0-20171110010315-6d367c18edf6
+	github.com/joho/godotenv v1.3.0
 	github.com/kurin/blazer v0.2.1
 	github.com/mattn/go-zglob v0.0.1
 	github.com/onsi/ginkgo v0.0.0-20171129001117-7a241e9c6c7f
