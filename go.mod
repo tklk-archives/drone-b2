@@ -11,7 +11,7 @@ require (
 	github.com/onsi/gomega v1.4.3
 	github.com/sirupsen/logrus v0.11.5
 	github.com/stretchr/testify v0.0.0-20171018052257-2aa2c176b9da
-	github.com/urfave/cli v0.0.0-20171203214237-119bb6564841
+	github.com/urfave/cli v0.1.0
 	golang.org/x/crypto v0.0.0-20190226231233-7f87c0fbb88b
 	golang.org/x/net v0.0.0-20190227034816-312bce6e941f
 	golang.org/x/sync v0.0.0-20190227034948-37e7f081c4d4
