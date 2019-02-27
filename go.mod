@@ -6,7 +6,7 @@ require (
 	github.com/golang/protobuf v0.0.0-20171113180720-1e59b77b52bf
 	github.com/joho/godotenv v0.0.0-20171110010315-6d367c18edf6
 	github.com/kurin/blazer v0.2.1
-	github.com/mattn/go-zglob v0.0.0-20171103113818-4b74c24375b3
+	github.com/mattn/go-zglob v0.0.1
 	github.com/onsi/ginkgo v0.0.0-20171129001117-7a241e9c6c7f
 	github.com/onsi/gomega v0.0.0-20171204093013-9aef6c6952f2
 	github.com/sirupsen/logrus v0.0.0-20171118124223-95cd2b9c79aa
