@@ -19,5 +19,5 @@ require (
 	golang.org/x/text v0.3.0
 	gopkg.in/airbrake/gobrake.v2 v2.0.9
 	gopkg.in/check.v1 v1.0.0-20161208181325-20d25e280405
-	gopkg.in/yaml.v2 v2.0.0-20170812160011-eb3733d160e7
+	gopkg.in/yaml.v2 v2.2.2
 )
