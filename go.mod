@@ -13,7 +13,7 @@ require (
 	github.com/stretchr/testify v1.3.0
 	github.com/urfave/cli v1.20.0
 	golang.org/x/crypto v0.0.0-20190308225243-c2843e01d9a2
-	golang.org/x/net v0.0.0-20190310023748-b774fd8d5c0f
+	golang.org/x/net v0.0.0-20190311195525-d8887717615a
 	golang.org/x/sync v0.0.0-20190227235347-e225da77a7e6
 	golang.org/x/sys v0.0.0-20190311165951-c8c8c57fd1e1
 	golang.org/x/text v0.3.0
