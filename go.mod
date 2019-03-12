@@ -9,7 +9,7 @@ require (
 	github.com/mattn/go-zglob v0.0.1
 	github.com/onsi/ginkgo v1.8.0
 	github.com/onsi/gomega v1.4.3
-	github.com/sirupsen/logrus v1.3.0
+	github.com/sirupsen/logrus v1.4.0
 	github.com/stretchr/testify v1.3.0
 	github.com/urfave/cli v1.20.0
 	golang.org/x/crypto v0.0.0-20190308225243-c2843e01d9a2
