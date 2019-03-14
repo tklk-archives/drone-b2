@@ -12,7 +12,7 @@ require (
 	github.com/sirupsen/logrus v1.4.0
 	github.com/stretchr/testify v1.3.0
 	github.com/urfave/cli v1.20.0
-	golang.org/x/crypto v0.0.0-20190308225243-c2843e01d9a2
+	golang.org/x/crypto v0.0.0-20190313034610-a1f597ede03a
 	golang.org/x/net v0.0.0-20190311195525-d8887717615a
 	golang.org/x/sync v0.0.0-20190227235347-e225da77a7e6
 	golang.org/x/sys v0.0.0-20190312065529-fead79001313
