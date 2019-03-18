@@ -15,7 +15,7 @@ require (
 	golang.org/x/crypto v0.0.0-20190313034610-a1f597ede03a
 	golang.org/x/net v0.0.0-20190318224444-d196dffd7c2b
 	golang.org/x/sync v0.0.0-20190227235347-e225da77a7e6
-	golang.org/x/sys v0.0.0-20190312065529-fead79001313
+	golang.org/x/sys v0.0.0-20190318224451-6c81ef8f67ca
 	golang.org/x/text v0.3.0
 	gopkg.in/airbrake/gobrake.v3 v3.7.4
 	gopkg.in/check.v1 v1.0.0-20161208181325-20d25e280405
