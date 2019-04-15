@@ -14,7 +14,7 @@ require (
 	github.com/urfave/cli v1.20.0
 	golang.org/x/crypto v0.0.0-20190415212913-88737f569e3a
 	golang.org/x/net v0.0.0-20190415105212-4a65cf94b679
-	golang.org/x/sync v0.0.0-20190227235347-e225da77a7e6
+	golang.org/x/sync v0.0.0-20190415212943-56d357773e84
 	golang.org/x/sys v0.0.0-20190415154619-3fd5a3612ccd
 	golang.org/x/text v0.3.0
 	gopkg.in/airbrake/gobrake.v3 v3.7.4
