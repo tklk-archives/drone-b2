@@ -16,7 +16,7 @@ require (
 	golang.org/x/net v0.0.0-20190810084953-ca1201d0de80
 	golang.org/x/sync v0.0.0-20190415212943-56d357773e84
 	golang.org/x/sys v0.0.0-20190810084958-51ab0e2deafa
-	golang.org/x/text v0.3.0
+	golang.org/x/text v0.3.2
 	gopkg.in/airbrake/gobrake.v3 v3.7.4
 	gopkg.in/check.v1 v1.0.0-20161208181325-20d25e280405
 	gopkg.in/yaml.v2 v2.2.2
