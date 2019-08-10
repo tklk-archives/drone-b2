@@ -3,7 +3,7 @@ module github.com/techknowlogick/drone-b2
 go 1.12
 
 require (
-	github.com/golang/protobuf v1.3.1
+	github.com/golang/protobuf v1.3.2
 	github.com/joho/godotenv v1.3.0
 	github.com/kurin/blazer v0.5.3
 	github.com/mattn/go-zglob v0.0.1
