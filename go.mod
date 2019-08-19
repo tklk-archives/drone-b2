@@ -10,7 +10,7 @@ require (
 	github.com/onsi/ginkgo v1.8.0
 	github.com/onsi/gomega v1.6.0
 	github.com/sirupsen/logrus v1.4.2
-	github.com/stretchr/testify v1.3.0
+	github.com/stretchr/testify v1.4.0
 	github.com/urfave/cli v1.21.0
 	golang.org/x/crypto v0.0.0-20190810175335-4def268fd1a4
 	golang.org/x/net v0.0.0-20190810084953-ca1201d0de80
