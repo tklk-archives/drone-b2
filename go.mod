@@ -9,6 +9,6 @@ require (
 	github.com/sirupsen/logrus v1.4.2
 	github.com/stretchr/testify v1.4.0 // indirect
 	github.com/urfave/cli v1.21.0
-	golang.org/x/sys v0.0.0-20190810084958-51ab0e2deafa // indirect
+	golang.org/x/sys v0.0.0-20190821022235-fde4db37ae7a // indirect
 	gopkg.in/check.v1 v1.0.0-20161208181325-20d25e280405 // indirect
 )
