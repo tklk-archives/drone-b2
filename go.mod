@@ -8,7 +8,8 @@ require (
 	github.com/mattn/go-zglob v0.0.1
 	github.com/sirupsen/logrus v1.4.2
 	github.com/stretchr/testify v1.4.0 // indirect
-	github.com/urfave/cli v1.22.1
+	github.com/urfave/cli v1.22.2
+	github.com/urfave/cli/v2 v2.0.0
 	golang.org/x/sys v0.0.0-20191007154456-ef33b2fb2c41 // indirect
 	gopkg.in/check.v1 v1.0.0-20161208181325-20d25e280405 // indirect
 )
