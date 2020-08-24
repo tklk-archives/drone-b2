@@ -6,7 +6,7 @@ require (
 	github.com/joho/godotenv v1.3.0
 	github.com/kurin/blazer v0.5.3
 	github.com/mattn/go-zglob v0.0.3
-	github.com/sirupsen/logrus v1.4.2
+	github.com/sirupsen/logrus v1.6.0
 	github.com/stretchr/testify v1.4.0 // indirect
 	github.com/urfave/cli v1.22.4
 	github.com/urfave/cli/v2 v2.0.0
