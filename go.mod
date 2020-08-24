@@ -5,7 +5,7 @@ go 1.12
 require (
 	github.com/joho/godotenv v1.3.0
 	github.com/kurin/blazer v0.5.3
-	github.com/mattn/go-zglob v0.0.1
+	github.com/mattn/go-zglob v0.0.3
 	github.com/sirupsen/logrus v1.4.2
 	github.com/stretchr/testify v1.4.0 // indirect
 	github.com/urfave/cli v1.22.4
